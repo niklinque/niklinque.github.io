@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@niklinque</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <img src="icons/icon-window.png" alt="icon" class="window-icon">@niklinque
+            </div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+        </div>
+        </div>
+
+        <div class="window-body">
+        <div class="content-area">
+            <img alt="photo" class="window-photo">
+            </div>
+        </div>
+    </div>
+
+    <div class="window-footer">
+        <span class="footer-name" style="cursor:pointer">никита</span>
+        <span class="footer-pronouns">он/его</span>
+    </div>
+
+    <div class="links-bar">
+        <a href="https://t.me/niklinque" target="_blank">
+            <img src="icons/icon-telegram.svg" alt="tg" class="link-icon">Telegram
+        </a>
+        <a href="https://tiktok.com/@niklinque" target="_blank">
+            <img src="icons/icon-tiktok.png" alt="tt" class="link-icon">TikTok
+        </a>
+        <a href="#" class="projects-link">
+            <img src="icons/icon-projects.png" alt="pj" class="link-icon">Проекты
+        </a>
+    </div>
+
+    <!-- Модальное окно: О себе -->
+    <div class="modal" id="about-modal">
+        <div class="window" style="width: 400px;">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    <img src="icons/icon-window.png" alt="icon" class="window-icon">О себе
+                </div>
+                <div class="title-bar-controls">
+                    <button aria-label="Close" class="modal-close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>привеееее!<br>
+                это я, никита<br>
+                я паренёк и мне 17 лет, кстати<br>
+                иногда я шучу в телеграме, снимаю в тиктоке, вместе с ии собираю интересные вещи, иногда восстанавливаю на ютубе утраченное<br>
+                я пытаюсь быть хорошим, очень.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Проекты -->
+    <div class="modal" id="projects-modal">
+        <div class="window" style="width: 400px;">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    <img src="icons/icon-window.png" alt="icon" class="window-icon">Проекты
+                </div>
+                <div class="title-bar-controls">
+                    <button aria-label="Close" class="modal-close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>
+                    <img src="icons/icon-ms.jpg" alt="ms" class="text-icon"> <a href="https://t.me/musicemojibot" target="_blank">Music Status</a> — бот в Telegram, которое изменяет эмодзи-статус на трек, который сейчас играет в Яндекс.Музыке или Spotify</li><br>
+                    <br>
+                    <img src="icons/icon-ap.png" alt="ap" class="text-icon"> <a href="https://youtube.com/@archiveandperiod" target="_blank">архив и точка</a> — канал на YouTube, в котором восстановлены удалённые видео <img src="icons/icon-ys.png" alt="ys" class="text-icon"> Улиткиной Слюнки, <img src="icons/icon-sp.png" alt="sm" class="text-icon"> Спермульки, <img src="icons/icon-7.png" alt="7" class="text-icon"> 7 слешей, <img src="icons/icon-o.png" alt="ol" class="text-icon"> Стримов Олёши</li>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('copy', event => event.preventDefault());
+        document.addEventListener('cut', event => event.preventDefault());
+        document.addEventListener('paste', event => event.preventDefault());
+
+        (function() {
+            const maxPhotos = 3;
+            const photoNum = Math.floor(Math.random() * maxPhotos) + 1;
+            const photoPath = `photos/${photoNum}.jpg`;
+            const img = document.querySelector('.window-photo');
+            img.onload = function() {
+                document.body.style.display = 'flex';
+            };
+            img.src = photoPath;
+        })();
+
+        // Модальные окна
+        function openModal(id) {
+            document.getElementById(id).classList.add('modal-active');
+        }
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(m => m.classList.remove('modal-active'));
+        }
+        document.querySelector('.footer-name').onclick = function() { openModal('about-modal'); };
+        document.querySelector('.projects-link').onclick = function(e) { e.preventDefault(); openModal('projects-modal'); };
+        document.querySelectorAll('.modal-close').forEach(btn => btn.onclick = closeModal);
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+        });
+    </script>
+</body>
+</html>
