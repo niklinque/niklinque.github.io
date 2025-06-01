@@ -94,7 +94,7 @@
         document.addEventListener('paste', event => event.preventDefault());
 
         (function() {
-            const maxPhotos = 3;
+            const maxPhotos = 11;
             const photoNum = Math.floor(Math.random() * maxPhotos) + 1;
             const photoPath = `photos/${photoNum}.jpg`;
             const img = document.querySelector('.window-photo');
