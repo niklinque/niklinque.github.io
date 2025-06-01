@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@niklinque</title>
     <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
@@ -92,17 +93,6 @@
         document.addEventListener('copy', event => event.preventDefault());
         document.addEventListener('cut', event => event.preventDefault());
         document.addEventListener('paste', event => event.preventDefault());
-
-        (function() {
-            const maxPhotos = 11;
-            const photoNum = Math.floor(Math.random() * maxPhotos) + 1;
-            const photoPath = `photos/${photoNum}.jpg`;
-            const img = document.querySelector('.window-photo');
-            img.onload = function() {
-                document.body.style.display = 'flex';
-            };
-            img.src = photoPath;
-        })();
 
         // Модальные окна
         function openModal(id) {
