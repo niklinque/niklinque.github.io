@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const photo = document.querySelector('.window-photo');
-    const maxPhotos = 11;
+    const maxPhotos = 13;
     
     // Get the last shown photo number from localStorage
     let lastPhotoNum = parseInt(localStorage.getItem('lastPhotoNum')) || 0;
