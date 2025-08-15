@@ -3,129 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@niklinque</title>
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://niklinque.github.io/">
-    <meta property="og:title" content="@niklinque">
-    <meta property="og:description" content="about Nikita Zh*, @niklinque">
-    <meta property="og:image" content="https://niklinque.github.io/photos/open-graph.jpg">
+    <title>nikita zh*</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            /* Убираем overflow, чтобы управлять прокруткой через JS */
+            overflow: hidden; 
+        }
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://niklinque.github.io/">
-    <meta property="twitter:title" content="@niklinque">
-    <meta property="twitter:description" content="about Nikita Zh*, @niklinque">
-    <meta property="twitter:image" content="https://niklinque.github.io/photos/open-graph.jpg">
+        /* Контейнер для всех сцен */
+        .scene-container {
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll; /* Включаем прокрутку для контейнера */
+            scroll-snap-type: y mandatory; /* Прилипание при прокрутке */
+        }
 
-    <link rel="stylesheet" href="https://unpkg.com/98.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+        /* Стили для каждой сцены */
+        section {
+            width: 100%;
+            height: 100%;
+            scroll-snap-align: start; /* Привязка к началу экрана */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a {
+            font-size: 24px;
+            color: #ffffff;
+            text-decoration-color: #7aabd7;
+            text-decoration-thickness: 2px;
+            transition: background-color 0.2s linear;
+        }
+
+        a:hover {
+            background-color: #7aabd7;
+            border-radius: 3px;
+            transition: background-color 0.2s linear;
+        }
+
+        #scene-1 {
+            background-color: #000000; /* Фон для первой сцены */
+        }
+
+        #scene-2 {
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+        }
+
+        #scene-3 {
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+        }
+
+        #animated-svg {
+            width: 100%;
+            height: 100%;
+            transform-origin: top;
+            animation: stretch-down 0.8s cubic-bezier(0, 0, 0, 1) forwards;
+        }
+
+        @keyframes stretch-down {
+            from {
+                transform: scaleY(0);
+            }
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        /* Стили для всплывающих подсказок */
+        .project-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ffffff;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+            max-width: 280px;
+            width: max-content;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 1px solid #7aabd7;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px);
+            transition: all 0.3s ease-in-out;
+            z-index: 1000;
+            margin-bottom: 10px;
+            pointer-events: none;
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: #7aabd7;
+        }
+
+        .project-link:hover .tooltip,
+        .project-link.active .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .tooltip {
+                max-width: 260px;
+                font-size: 13px;
+                padding: 10px 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="window">
-        <div class="title-bar">
-            <div class="title-bar-text">
-                <img src="icons/icon-window.png" alt="icon" class="window-icon">@niklinque
+    <div class="scene-container" id="sceneContainer">
+        <!-- СЦЕНА 1 -->
+        <section id="scene-1">
+            <svg id="animated-svg" viewBox="0 0 149.33 20.46" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h2.99l9.57 16.15V0h2.75v20.46h-2.99L2.75 4.31v16.15H0zm18.55 0h5.38v2.63h-1.32v15.2h1.32v2.63h-5.38v-2.63h1.32V2.63h-1.32zm8.61 0h2.75v9.33L39.25 0h3.47l-8.14 8.14 8.26 12.32h-3.23l-6.94-10.41-2.75 2.75v7.66h-2.75V0Zm17.23 0h5.38v2.63h-1.32v15.2h1.32v2.63h-5.38v-2.63h1.32V2.63h-1.32zm7.3 0h16.39v2.27h-6.82v18.19h-2.75V2.27h-6.82zm17.59 20.46 8.14-20.7h2.39l8.14 20.7h-2.87l-2.51-6.22h-7.9l-2.51 6.22h-2.87Zm9.33-16.75-3.11 8.26h6.22zM99.43 0h13.88v2.39l-11.73 15.79h12.08v2.27H98.7v-2.39l11.73-15.79H99.42V0Zm17.71 0h2.75v8.62h9.81V0h2.75v20.46h-2.75v-9.57h-9.81v9.57h-2.75zm26.09 8.26 4.91-3.11 1.2 2.15-5.15 2.63 5.15 2.63-1.2 2.15-4.91-3.11.24 6.1h-2.39l.24-6.1-4.91 3.11-1.2-2.15 5.15-2.63-5.15-2.63 1.2-2.15 4.91 3.11-.24-5.74h2.39z" style="fill:#ffffff"/>
+            </svg>
+        </section>
+
+        <!-- СЦЕНА 2 -->
+        <section id="scene-2">
+            <div style='display: flex; flex-direction: column; align-items: center; gap: 15px'>
+                <a href="https://t.me/ugliestcutie" target="_blank" rel="noopener noreferrer">dm (telegram)</a>
+                <a href="https://t.me/niklinque" target="_blank" rel="noopener noreferrer">telegram channel</a>
+                <a href="https://tiktok.com/@niklinque" target="_blank" rel="noopener noreferrer">tiktok</a>
+                <a href="https://instagram.com/@niklinques" target="_blank" rel="noopener noreferrer">instagram*</a>
+                <a href="https://youtube.com/@niklinque" target="_blank" rel="noopener noreferrer">youtube</a>
             </div>
-            <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Maximize"></button>
-                <button aria-label="Close"></button>
-        </div>
-        </div>
+            
+        </section>
 
-        <div class="window-body">
-        <div class="content-area">
-            <img alt="photo" class="window-photo">
-            </div>
-        </div>
-    </div>
-
-    <div class="window-footer">
-        <span class="footer-name" style="cursor:pointer">никита</span>
-        <span class="footer-pronouns">он/его</span>
-    </div>
-
-    <div class="links-bar">
-        <a href="https://t.me/niklinque" target="_blank">
-            <img src="icons/icon-telegram.svg" alt="tg" class="link-icon">Telegram
-        </a>
-        <a href="https://tiktok.com/@niklinque" target="_blank">
-            <img src="icons/icon-tiktok.png" alt="tt" class="link-icon">TikTok
-        </a>
-        <a href="https://youtube.com/@niklinque" target="_blank">
-            <img src="icons/icon-youtube.png" alt="yt" class="link-icon">YouTube
-        </a>
-        <a href="#" class="projects-link">
-            <img src="icons/icon-projects.png" alt="pj" class="link-icon">Проекты
-        </a>
-    </div>
-
-    <!-- Модальное окно: О себе -->
-    <div class="modal" id="about-modal">
-        <div class="window" style="width: 400px;">
-            <div class="title-bar">
-                <div class="title-bar-text">
-                    <img src="icons/icon-window.png" alt="icon" class="window-icon">О себе
-                </div>
-                <div class="title-bar-controls">
-                    <button aria-label="Close" class="modal-close"></button>
+        <!-- СЦЕНА 3 -->
+        <section id="scene-3">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h2 style="margin-bottom: 20px; margin-top: 0; font-size: 30px; font-weight: bold;">projects</h2>
+                <h2 style="margin-bottom: 20px; margin-top: 0; font-size: 15px; font-weight: bold;">most of them are vibecoded btw</h2>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                    <div class="project-link">
+                        <a href="https://t.me/wplacetomsktimelapse" target="_blank" rel="noopener noreferrer">tomsk wplace timelapse</a>
+                        <div class="tooltip">
+                            Таймлапсы Томска и окрестностей в wplace.live
+                        </div>
+                    </div>
+                    <div class="project-link">
+                        <a href="https://t.me/musicemojibot" target="_blank" rel="noopener noreferrer">Music Status</a>
+                        <div class="tooltip">
+                            Telegram-бот, который автоматически ставит на эмодзи-статусы прослушиваемую музыку в Spotify или Яндекс.Музыке
+                        </div>
+                    </div>
+                    <div class="project-link">
+                        <a href="https://youtube.com/@archiveandperiod" target="_blank" rel="noopener noreferrer">архив и точка</a>
+                        <div class="tooltip">
+                            YouTube-канал с перезаливами удалённых видео мем-блогеров из 2021 и удалённых нарезок Олёши
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="window-body">
-                <p>привеееее!<br>
-                это я, никита<br>
-                я паренёк и мне 17 лет, кстати<br>
-                иногда я шучу в телеграме, снимаю в тиктоке, вместе с ии собираю интересные вещи, иногда восстанавливаю на ютубе утраченное<br>
-                я пытаюсь быть хорошим, очень.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Модальное окно: Проекты -->
-    <div class="modal" id="projects-modal">
-        <div class="window" style="width: 400px;">
-            <div class="title-bar">
-                <div class="title-bar-text">
-                    <img src="icons/icon-window.png" alt="icon" class="window-icon">Проекты
-                </div>
-                <div class="title-bar-controls">
-                    <button aria-label="Close" class="modal-close"></button>
-                </div>
-            </div>
-            <div class="window-body">
-                <p>
-                    <img src="icons/icon-ms.jpg" alt="ms" class="text-icon"> <a href="https://t.me/musicemojibot" target="_blank">Music Status</a> — бот в Telegram, которое изменяет эмодзи-статус на трек, который сейчас играет в Яндекс.Музыке или Spotify</li><br>
-                    <br>
-                    <img src="icons/icon-ap.png" alt="ap" class="text-icon"> <a href="https://youtube.com/@archiveandperiod" target="_blank">архив и точка</a> — канал на YouTube, в котором восстановлены удалённые видео <img src="icons/icon-ys.png" alt="ys" class="text-icon"> Улиткиной Слюнки, <img src="icons/icon-sp.png" alt="sm" class="text-icon"> Спермульки, <img src="icons/icon-7.png" alt="7" class="text-icon"> 7 слешей, <img src="icons/icon-o.png" alt="ol" class="text-icon"> Стримов Олёши</li>
-                </p>
-            </div>
-        </div>
+        </section>
     </div>
 
     <script>
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.addEventListener('copy', event => event.preventDefault());
-        document.addEventListener('cut', event => event.preventDefault());
-        document.addEventListener('paste', event => event.preventDefault());
+        const container = document.getElementById('sceneContainer');
+        let isScrolling = false;
+        let activeTooltip = null;
 
-        // Модальные окна
-        function openModal(id) {
-            document.getElementById(id).classList.add('modal-active');
-        }
-        function closeModal() {
-            document.querySelectorAll('.modal').forEach(m => m.classList.remove('modal-active'));
-        }
-        document.querySelector('.footer-name').onclick = function() { openModal('about-modal'); };
-        document.querySelector('.projects-link').onclick = function(e) { e.preventDefault(); openModal('projects-modal'); };
-        document.querySelectorAll('.modal-close').forEach(btn => btn.onclick = closeModal);
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) closeModal();
+        // Функция для работы с тултипами на мобильных устройствах
+        function initTooltips() {
+            const projectLinks = document.querySelectorAll('.project-link');
+            
+            projectLinks.forEach(link => {
+                const anchor = link.querySelector('a');
+                const tooltip = link.querySelector('.tooltip');
+                
+                // Обработка касаний для мобильных устройств
+                anchor.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    
+                    // Закрываем предыдущий активный тултип
+                    if (activeTooltip && activeTooltip !== link) {
+                        activeTooltip.classList.remove('active');
+                    }
+                    
+                    // Переключаем состояние текущего тултипа
+                    if (link.classList.contains('active')) {
+                        link.classList.remove('active');
+                        activeTooltip = null;
+                        // Если тултип уже открыт, переходим по ссылке
+                        setTimeout(() => {
+                            window.open(anchor.href, '_blank');
+                        }, 100);
+                    } else {
+                        link.classList.add('active');
+                        activeTooltip = link;
+                    }
+                });
+
+                // Обработка клика для десктопа
+                anchor.addEventListener('click', (e) => {
+                    // На мобильных устройствах обработка клика происходит в touchstart
+                    if ('ontouchstart' in window) {
+                        return;
+                    }
+                });
             });
+
+            // Закрытие тултипов при касании вне области
+            document.addEventListener('touchstart', (e) => {
+                if (activeTooltip && !activeTooltip.contains(e.target)) {
+                    activeTooltip.classList.remove('active');
+                    activeTooltip = null;
+                }
+            });
+        }
+
+        // Обработка прокрутки колесом мыши
+        container.addEventListener('wheel', (event) => {
+            event.preventDefault();
+
+            if (isScrolling) return;
+            isScrolling = true;
+
+            const scrollDown = event.deltaY > 0;
+            const sceneHeight = window.innerHeight;
+            const currentScrollTop = container.scrollTop;
+
+            // Определяем текущую сцену (0, 1, 2)
+            let currentScene = Math.round(currentScrollTop / sceneHeight);
+
+            let targetScene;
+            if (scrollDown) {
+                // Вниз, если не на последней сцене
+                targetScene = Math.min(currentScene + 1, 2);
+            } else {
+                // Вверх, если не на первой сцене
+                targetScene = Math.max(currentScene - 1, 0);
+            }
+
+            if (targetScene !== currentScene) {
+                container.scrollTo({
+                    top: targetScene * sceneHeight,
+                    behavior: 'smooth'
+                });
+            }
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000); // Длительность должна соответствовать анимации 'smooth'
+        });
+
+        // Инициализация после загрузки DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            initTooltips();
         });
     </script>
 </body>
